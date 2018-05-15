@@ -1,15 +1,12 @@
 const button = document.querySelector('button.greeting')
-//const changetxt
+const h1 = document.querySelector('h1')
 
 function changeText() {
-    // get the element you want to change the text of.
-    //button
-    // get the text you want to change the element to.
+    
     const p = document.querySelector('p.greeting');
-    // FINAL STEP: change the text.
-    button.textContent = p.textContent;
+    const txt = document.querySelector("input#txt")
+    h1.textContent = p.textContent;
 }
-
 
 button.addEventListener('click', changeText)
 
