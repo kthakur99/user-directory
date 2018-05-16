@@ -16,7 +16,13 @@ main {
 label{
     display: block;
 }
+dl {
+    padding: 1rem;
+}
 
-dl li{
+dl > li{
     list-style: none;
 }
+dl:nth-of-type(even) {
+    background-color: WhiteSmoke;
+  }
