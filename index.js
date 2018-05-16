@@ -3,11 +3,18 @@ const form = document.querySelector('#userForm')
 const handleSubmit = function(ev)
 {
     ev.preventDefault()
-    const users = document.querySelector('#users')
     const f = ev.target
-    const userName = f.userName.value
-    const age = f.age.value
-    const favoriteColor = f.favoriteColor.value
+    const user = {
+    userName: f.age.value,
+    favoriteColor: renderColor(favoriteColor),
+}
+
+    const list = document.createElement('ul')
+    const labels = Object.keys(user(function(label) {
+    const item = renderListItem(label, user[label])
+    list.appendChild(item)
+   }
+
     
     const colorItem = document.createElement('li')
     colorItem.textContent = 'Favorite Color: '
@@ -41,6 +48,6 @@ function renderListItem(label, value)
     const item = document.createElement('li')
     item.textContent = `${label}: ${value}`
     return item
-
 }
 form.addEventListener('submit', handleSubmit)
+
