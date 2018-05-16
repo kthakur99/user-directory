@@ -42,4 +42,11 @@ function renderColor(favoriteColor)
     return colorDiv
 }
 
+function renderListItem(label, value) 
+{
+    const item = document.createElement('li')
+    item.textContent = `${label}: ${value}`
+    return item
+
+}
 form.addEventListener('submit', handleSubmit)
