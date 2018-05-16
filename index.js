@@ -8,12 +8,6 @@ const handleSubmit = function(ev)
     const userName = f.userName.value
     const age = f.age.value
     const favoriteColor = f.favoriteColor.value
-   
-    const nameItem = document.createElement('li')
-    nameItem.textContent = `Name: ${userName}`
-
-    const ageItem = document.createElement('li')
-    ageItem.textContent = `Age: ${age}`
     
     const colorItem = document.createElement('li')
     colorItem.textContent = 'Favorite Color: '
@@ -21,8 +15,8 @@ const handleSubmit = function(ev)
     colorItem.appendChild(renderColor(favoriteColor))
 
     const list = document.createElement('ul')
-    list.appendChild(nameItem)
-    list.appendChild(ageItem)
+    list.appendChild(renderListItem(Name,item))
+    list.appendChild(renderListItem(Age,item))
     list.appendChild(colorItem)
     
     users.appendChild(list)
