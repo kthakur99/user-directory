@@ -1,53 +1,57 @@
-const form = document.querySelector('#userForm')
+const form = document.querySelector('form#userForm')
 
-const handleSubmit = function(ev)
-{
-    ev.preventDefault()
-    const f = ev.target
-    const user = {
-    userName: f.age.value,
-    favoriteColor: renderColor(favoriteColor),
+function renderColor(color) {
+  const colorDiv = document.createElement('div')
+  colorDiv.style.backgroundColor = color
+  colorDiv.style.width = '6rem'
+  colorDiv.style.height = '3rem'
+
+  return colorDiv
 }
 
-    const list = document.createElement('ul')
-    const labels = Object.keys(user(function(label) {
-    const item = renderListItem(label, user[label])
+function renderListItem(label, value) {
+  const item = document.createElement('li')
+
+  const term = document.createElement('dt')
+  term.textContent = label
+
+  const description = document.createElement('dd')
+
+  try {
+    description.appendChild(value)
+  } catch(e) {
+    description.textContent += value
+  }
+
+  item.appendChild(term)
+  item.appendChild(description)
+  return item
+}
+
+function renderList(data) {
+  const list = document.createElement('dl')
+  Object.keys(data).forEach(label => {
+    const item = renderListItem(label, data[label])
     list.appendChild(item)
-   }
-
-    
-    const colorItem = document.createElement('li')
-    colorItem.textContent = 'Favorite Color: '
-
-    colorItem.appendChild(renderColor(favoriteColor))
-
-    const list = document.createElement('ul')
-    list.appendChild(renderListItem("Name", userName))
-    list.appendChild(renderListItem("Age", age))
-    list.appendChild(colorItem)
-    
-    users.appendChild(list)
-
-    f.reset()
-    f.userName.focus()
-
+  })
+  return list
 }
 
-function renderColor(favoriteColor)
-{
-    const colorDiv = document.createElement('div')
-    colorDiv.style.backgroundColor = favoriteColor
-    colorDiv.style.width = '6rem'
-    colorDiv.style.height = '3rem'
+const handleSubmit = function(ev) {
+  ev.preventDefault()
+  const form = ev.target
+  const user = {
+    'Name': form.userName.value,
+    'Age': form.age.value,
+    'Favorite Color': renderColor(form.favoriteColor.value),
+  }
 
-    return colorDiv
+  const list = renderList(user)
+  const users = document.querySelector('#users')
+  users.appendChild(list)
+
+  form.reset()
+  form.userName.focus()
 }
 
-function renderListItem(label, value) 
-{
-    const item = document.createElement('li')
-    item.textContent = `${label}: ${value}`
-    return item
-}
 form.addEventListener('submit', handleSubmit)
-
