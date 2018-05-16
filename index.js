@@ -7,7 +7,7 @@ const handleSubmit = function(ev)
     const f = ev.target
     const userName = f.userName.value
     users.textContent += ' ' + userName 
-
+    user.innerHTML += '<p>' + userName + </p>
     f.userName.value = ' '
 }
 
