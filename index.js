@@ -17,13 +17,8 @@ const handleSubmit = function(ev)
     
     const colorItem = document.createElement('li')
     colorItem.textContent = 'Favorite Color: '
-   
-    const colorDiv = document.createElement('div')
-    colorDiv.style.backgroundColor = favoriteColor
-    colorDiv.style.width = '6rem'
-    colorDiv.style.height = '3rem'
 
-    colorItem.appendChild(colorDiv)
+    colorItem.appendChild(renderColor(favoriteColor))
 
     const list = document.createElement('ul')
     list.appendChild(nameItem)
@@ -37,5 +32,14 @@ const handleSubmit = function(ev)
 
 }
 
+function renderColor(favoriteColor)
+{
+    const colorDiv = document.createElement('div')
+    colorDiv.style.backgroundColor = favoriteColor
+    colorDiv.style.width = '6rem'
+    colorDiv.style.height = '3rem'
+
+    return colorDiv
+}
 
 form.addEventListener('submit', handleSubmit)
