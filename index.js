@@ -1,9 +1,12 @@
-const button = document.querySelector('button.greeting')
+const form = document.querySelector('#userForm')
 
-
-function changeText(ev) {
-    const heading = document.querySelector('.changeThisOne');
-    heading.textContent = 'Clickity click'
+const handleSubmit = function(ev)
+{
+    ev.preventDefault()
+    const heading = document.querySelector('h1')
+    const f = ev.target
+    const userName = f.userName.value
+    heading.textContent = userName 
 }
 
-button.addEventListener('click', changeText)
+form.addEventListener('submit', handleSubmit)
