@@ -15,8 +15,8 @@ const handleSubmit = function(ev)
     colorItem.appendChild(renderColor(favoriteColor))
 
     const list = document.createElement('ul')
-    list.appendChild(renderListItem(Name,item))
-    list.appendChild(renderListItem(Age,item))
+    list.appendChild(renderListItem("Name", userName))
+    list.appendChild(renderListItem("Age", age))
     list.appendChild(colorItem)
     
     users.appendChild(list)
